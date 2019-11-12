@@ -117,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:fontFamily="@font/caveat_bold"
+                android:onClick="loginPage"
                 android:paddingHorizontal="5dp"
                 android:paddingVertical="5dp"
                 android:paddingStart="5dp"
