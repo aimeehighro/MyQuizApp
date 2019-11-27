@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -20,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 
 public class LoginActivity extends AppCompatActivity{
     private EditText email, password;
@@ -78,11 +80,33 @@ public class LoginActivity extends AppCompatActivity{
                             Log.d("Mia", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             startActivity(new Intent(LoginActivity.this,HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                            Toast toast = Toast.makeText(LoginActivity.this, "✓ - Sign in Success", Toast.LENGTH_LONG);
+                            View view = toast.getView();
+
+                            //To change the Background of Toast
+                            view.setBackgroundColor(Color.GREEN);
+                            TextView text = (TextView) view.findViewById(android.R.id.message);
+
+                            //Shadow of the Of the Text Color
+//                            text.setShadowLayer(0, 0, 0, Color.TRANSPARENT);
+                            text.setTextColor(Color.WHITE);
+                            toast.show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Mia", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast toast = Toast.makeText(LoginActivity.this, "X - Authentication failed!", Toast.LENGTH_LONG);
+                            View view = toast.getView();
+
+                            //To change the Background of Toast
+                            view.setBackgroundColor(Color.RED);
+                            TextView text = (TextView) view.findViewById(android.R.id.message);
+
+                            //Shadow of the Of the Text Color
+//                            text.setShadowLayer(0, 0, 0, Color.TRANSPARENT);
+                            text.setTextColor(Color.WHITE);
+                            toast.show();
+//                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -94,6 +118,7 @@ public class LoginActivity extends AppCompatActivity{
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
+//            Log.d("Mia", currentUser.toString());
             startActivity(new Intent(LoginActivity.this,HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
         }
     }

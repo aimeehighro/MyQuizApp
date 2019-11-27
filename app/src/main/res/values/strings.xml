@@ -3,7 +3,7 @@
     <string name="around_the_world_trivia">Around The World Trivia</string>
     <string name="sign_out">Sign Out</string>
     <string name="start">Start</string>
-    <string name="highscore_0">Highscore: 0</string>
+    <string name="highscore_0">Highscore:</string>
     <string name="globe">Globe</string>
     <string name="email">Email</string>
     <string name="login">Login</string>
@@ -13,4 +13,6 @@
     <string name="register_account">Register Account</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="score">Score:</string>
+    <string name="value">Value:</string>
+    <string name="welcomeUser">Hello,</string>
 </resources>
